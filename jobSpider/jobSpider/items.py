@@ -13,7 +13,7 @@ class PositionItem(scrapy.Item):
     # name = scrapy.Field()
     position_name = scrapy.Field()
     position_salary = scrapy.Field()
-    position_descibe = scrapy.Field()
+    position_describe = scrapy.Field()
 #class CompanyItem(scrapy.Item):
     company_name = scrapy.Field()
     company_location = scrapy.Field()

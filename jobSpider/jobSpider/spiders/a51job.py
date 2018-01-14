@@ -24,7 +24,6 @@ class A51jobSpider(CrawlSpider):
     )
 
     # 从初始页面找到下一页链接并发起request
-    
     def parse_start_url(self, response):
         next_page = Selector(response).re(u'<a href="(\S*)">下一页</a>')
         if next_page:
@@ -36,7 +35,7 @@ class A51jobSpider(CrawlSpider):
 
         position_name = soup.select('h1')[0].get_text()
         position_salary = soup.select('h1 + span + strong')[0].get_text()
-        position_descibe = soup.select('h2 + div')[0].get_text().expandtabs(tabsize=0)
+        position_describe = soup.select('h2 + div')[0].get_text().split('\t\t\t\t\t\t')[1]
         
         
         company_name = soup.select('.cname')[0].get_text().strip()
@@ -52,7 +51,7 @@ class A51jobSpider(CrawlSpider):
         	require_education = None
         
         posItem = PositionItem(position_name=position_name, position_salary=position_salary,
-                               position_descibe=position_descibe,
+                               position_describe=position_describe,
                                company_name=company_name, company_location=company_location, 
                                company_type=company_type, company_size=company_size, 
                                company_describe=company_describe,

@@ -36,7 +36,9 @@ ROBOTSTXT_OBEY = False
 COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
-#TELNETCONSOLE_ENABLED = False
+# TELNETCONSOLE_ENABLED = True
+# TELNETCONSOLE_PORT = 6023
+# TELNETCONDOLE_HOST = '127.0.0.1'
 
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
