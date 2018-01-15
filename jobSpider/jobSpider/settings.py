@@ -67,9 +67,10 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'jobSpider.pipelines.JobspiderPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'jobSpider.pipelines.A51jobspiderPipeline': 300,
+    #    'jobSpider.pipelines.JobspiderPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -91,3 +92,11 @@ DEFAULT_REQUEST_HEADERS = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# MYSQL SETTINGS
+MYSQL_HOST = '127.0.0.1'
+MYSQL_DBNAME = 'fwwb'
+MYSQL_USER = 'root'
+MYSQL_PASSWD = '123456'
+
+MYSQL_PORT = 3306
