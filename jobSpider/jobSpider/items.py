@@ -11,6 +11,7 @@ import scrapy
 class PositionItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    keyword = scrapy.Field()
     position_name = scrapy.Field()
     position_salary = scrapy.Field()
     position_describe = scrapy.Field()

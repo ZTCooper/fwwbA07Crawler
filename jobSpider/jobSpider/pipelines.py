@@ -44,7 +44,7 @@ class A51jobspiderPipeline(object):
             raise DropItem('Missing item in %s' % item)
 
     def insert_into_db(self, cur, item):
-        sql = 'insert into 51job(position_name, position_salary, position_describe, company_name, company_location, company_type, company_size, company_describe, require_experience, require_education) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
-        params = (item['position_name'], item['position_salary'], item['position_describe'], item['company_name'], item['company_location'],
+        sql = 'insert into 51job(position_name, keyword, position_salary, position_describe, company_name, company_location, company_type, company_size, company_describe, require_experience, require_education) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+        params = (item['position_name'], item['keyword'], item['position_salary'], item['position_describe'], item['company_name'], item['company_location'],
                   item['company_type'], item['company_size'], item['company_describe'], item['require_experience'], item['require_education'])
         cur.execute(sql, params)

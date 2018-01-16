@@ -33,11 +33,18 @@ class A51jobSpider(CrawlSpider):
     def parse_item(self, response):
         soup = BeautifulSoup(response.body, "lxml")
 
+        if soup.select('.mt10 p + p'):
+        	keyword = soup.select('.mt10 p + p')[0].get_text().replace('\n',' ')
+        else:
+            keyword = None
+
         position_name = soup.select('h1')[0].get_text()
         position_salary = soup.select('h1 + span + strong')[0].get_text()
-        position_describe = soup.select('h2 + div')[0].get_text().split('\t\t\t\t\t\t')[1]
-        
-        
+
+        position_describe = soup.select('h2 + div')[0].get_text()
+        for word in ['\t','\n','\r','职能类别：','关键字：','分享','微信','邮件']:
+            position_describe = position_describe.replace(word,'')
+
         company_name = soup.select('.cname')[0].get_text().strip()
         company_location = soup.select('h1 + span')[0].get_text()
         company_type = soup.select('.i_house + p')[0].get_text().split()[0]
@@ -45,12 +52,14 @@ class A51jobSpider(CrawlSpider):
         company_describe = soup.select('.i_house + p')[0].get_text().split()[4]
         
         require_experience = soup.select('.sp4')[0].get_text() 
+
         if soup.select('.sp4 .i2'):
-        	require_education = soup.select('.sp4')[1].get_text()
+            require_education = soup.select('.sp4')[1].get_text()
         else:
-        	require_education = None
+            require_education = None
         
-        posItem = PositionItem(position_name=position_name, position_salary=position_salary,
+        posItem = PositionItem(keyword=keyword,
+        	                   position_name=position_name, position_salary=position_salary,
                                position_describe=position_describe,
                                company_name=company_name, company_location=company_location, 
                                company_type=company_type, company_size=company_size, 
