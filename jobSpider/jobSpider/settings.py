@@ -55,9 +55,9 @@ ROBOTSTXT_OBEY = False
 COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
-# TELNETCONSOLE_ENABLED = True
-# TELNETCONSOLE_PORT = 6023
-# TELNETCONDOLE_HOST = '127.0.0.1'
+TELNETCONSOLE_ENABLED = True
+TELNETCONSOLE_PORT = 6023
+TELNETCONDOLE_HOST = '127.0.0.1'
 
 # Override the default request headers:
 # DEFAULT_REQUEST_HEADERS = {
@@ -76,14 +76,15 @@ COOKIES_ENABLED = False
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     #    'jobSpider.middlewares.MyCustomDownloaderMiddleware': 543,
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'jobSpider.middlewares.RandomUserAgentMiddleware': 543,
 }
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
-# EXTENSIONS = {
-#    'scrapy.extensions.telnet.TelnetConsole': None,
-#}
+EXTENSIONS = {
+    'scrapy.extensions.telnet.TelnetConsole': 500,
+}
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
