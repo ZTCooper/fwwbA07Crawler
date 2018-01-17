@@ -61,7 +61,7 @@ TELNETCONDOLE_HOST = '127.0.0.1'
 
 # Override the default request headers:
 # DEFAULT_REQUEST_HEADERS = {
-#	'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586',
+#   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586',
 #   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
 #}
@@ -97,9 +97,9 @@ ITEM_PIPELINES = {
 SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
 SCHEDULER_PERSIST = True
 DUPEFILTER_CLASS = 'scrapy_redis.dupefilter.RFPDupeFilter'
-ITEM_PIPELINES = {
-    'scrapy_redis.pipelines.RedisPipeline': 300
-}
+# ITEM_PIPELINES = {
+#    'scrapy_redis.pipelines.RedisPipeline': 300
+#}
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
 

@@ -37,7 +37,7 @@ class A51jobspiderPipeline(object):
         pass
 
     def process_item(self, item, spider):
-        if item['position_name']:
+        if item['position_name'] and item['position_salary']:
             query = self.dbpool.runInteraction(self.insert_into_db, item)
             return item
         else:
