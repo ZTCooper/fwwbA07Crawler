@@ -88,20 +88,20 @@ EXTENSIONS = {
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-    'jobSpider.pipelines.A51jobspiderPipeline': 300,
+#ITEM_PIPELINES = {
+#    'jobSpider.pipelines.A51jobspiderPipeline': 300,
     #    'jobSpider.pipelines.JobspiderPipeline': 300,
-}
+#}
 
 # Filter Settings
-SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
-SCHEDULER_PERSIST = True
-DUPEFILTER_CLASS = 'scrapy_redis.dupefilter.RFPDupeFilter'
+#SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
+#SCHEDULER_PERSIST = True
+#DUPEFILTER_CLASS = 'scrapy_redis.dupefilter.RFPDupeFilter'
 # ITEM_PIPELINES = {
 #    'scrapy_redis.pipelines.RedisPipeline': 300
 #}
-REDIS_HOST = '127.0.0.1'
-REDIS_PORT = 6379
+#REDIS_HOST = '127.0.0.1'
+#REDIS_PORT = 6379
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
