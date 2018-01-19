@@ -24,3 +24,5 @@ class PositionItem(scrapy.Item):
 #class RequireItem(scrapy.Item):
     require_experience = scrapy.Field()
     require_education = scrapy.Field()
+
+    post_time = scrapy.Field()
