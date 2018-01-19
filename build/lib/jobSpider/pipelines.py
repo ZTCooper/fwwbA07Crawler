@@ -42,7 +42,7 @@ class A51jobspiderPipeline(object):
             return item
         else:
             raise DropItem('Missing item in %s' % item)
-
+    # without item['post_time'],  add it if need
     def insert_into_db(self, cur, item):
         sql = 'insert into 51job(position_name, keyword, position_salary, position_describe, company_name, company_location, company_type, company_size, company_describe, require_experience, require_education) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
         params = (item['position_name'], item['keyword'], item['position_salary'], item['position_describe'], item['company_name'], item['company_location'],

@@ -45,7 +45,7 @@ class A51jobSpider(CrawlSpider):
         try:
             if soup.select('.mt10 p + p'):
                 keyword = soup.select(
-                    '.mt10 p + p')[0].get_text().replace('\n', ' ')
+                    '.mt10 p + p')[0].get_text().replace('\n', ' ').replace('关键字：', '')
             else:
                 keyword = None
 
@@ -57,11 +57,21 @@ class A51jobSpider(CrawlSpider):
                 position_describe = position_describe.replace(word, '')
 
             company_name = soup.select('.cname')[0].get_text().strip()
-            company_location = soup.select('h1 + span')[0].get_text()
+
+            # only city(without region)
+            company_location = soup.select('h1 + span')[0].get_text().split('-')[0]
+
             company_type = soup.select('.i_house + p')[0].get_text().split()[0]
             company_size = soup.select('.i_house + p')[0].get_text().split()[2]
+
             company_describe = soup.select(
                 '.i_house + p')[0].get_text().split()[4]
+
+            # token filter
+            tokens = [',', '/', '(', ')', '、']
+            for token in tokens:
+                company_describe = company_describe.replace(token, ' ')
+
 
             require_experience = soup.select('.sp4')[0].get_text()
 

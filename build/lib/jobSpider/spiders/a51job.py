@@ -70,13 +70,16 @@ class A51jobSpider(CrawlSpider):
             else:
                 require_education = None
 
+            post_time = soup.select('.sp4')[-1].get_text().replace('发布', '')
+
             posItem = PositionItem(keyword=keyword,
                                    position_name=position_name, position_salary=position_salary,
                                    position_describe=position_describe,
                                    company_name=company_name, company_location=company_location,
                                    company_type=company_type, company_size=company_size,
                                    company_describe=company_describe,
-                                   require_experience=require_experience, require_education=require_education)
+                                   require_experience=require_experience, require_education=require_education,
+                                   post_time = post_time)
             yield posItem
         except:
             print('Oops! Something goes wrong!')
