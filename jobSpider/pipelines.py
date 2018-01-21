@@ -9,7 +9,7 @@ import pymysql
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 
-class A51jobspiderPipeline(object):
+class A51jobMysqlPipeline(object):
     def __init__(self, dbpool):
         self.dbpool = dbpool
 
@@ -48,3 +48,15 @@ class A51jobspiderPipeline(object):
         params = (item['position_name'], item['keyword'], item['position_salary'], item['position_describe'], item['company_name'], item['company_location'],
                   item['company_type'], item['company_size'], item['company_describe'], item['require_experience'], item['require_education'])
         cur.execute(sql, params)
+
+
+class A51jobCleanPipeline(object):
+    def __init__(self):
+        pass
+
+    def process_item(self, item, spider):
+        if item['position_name'] and item['position_salary']:
+            return item
+        else:
+            raise DropItem('Missing item in %s' % item)
+        

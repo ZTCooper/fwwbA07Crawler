@@ -88,10 +88,11 @@ EXTENSIONS = {
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'jobSpider.pipelines.A51jobspiderPipeline': 300,
+ITEM_PIPELINES = {
+#    'jobSpider.pipelines.A51jobMysqlPipeline': 300,
+    'jobSpider.pipelines.A51jobCleanPipeline': 300,
     #    'jobSpider.pipelines.JobspiderPipeline': 300,
-#}
+}
 
 # Filter Settings
 #SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
