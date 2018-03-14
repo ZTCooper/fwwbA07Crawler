@@ -23,11 +23,11 @@ class A51jobSpider(CrawlSpider):
              ),
     )
 
-    # just need the first 55 pages
+    # just need the first 59 pages
     def parse_start_url(self, response):
         base_url1 = 'http://search.51job.com/list/000000,000000,0000,00,9,99,%25E5%25A4%25A7%25E6%2595%25B0%25E6%258D%25AE,2,'
         base_url2 = '.html?lang=c&stype=1&postchannel=0000&workyear=99&cotype=99&degreefrom=99&jobterm=99&companysize=99&lonlat=0%2C0&radius=-1&ord_field=0&confirmdate=9&fromType=&dibiaoid=0&address=&line=&specialarea=00&from=&welfare='
-        for page in range(1, 56):
+        for page in range(1, 59):
             yield scrapy.Request(url=base_url1 + str(page) + base_url2)
 
     '''
